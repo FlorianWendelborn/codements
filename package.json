@@ -1,6 +1,6 @@
 {
 	"name": "codements",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Code & comment alignment library.",
 	"main": "build/index.js",
 	"scripts": {
@@ -24,7 +24,7 @@
 		"url": "https://github.com/dodekeract/codements/issues"
 	},
 	"homepage": "https://github.com/dodekeract/codements#readme",
-	"dependencies": {
+	"devDependencies": {
 		"babel": "^6.3.26",
 		"babel-cli": "^6.4.0"
 	}
