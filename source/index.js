@@ -2,7 +2,8 @@ var defaultOptions = {
 	spacesBefore: 1,
 	spacesAfter: 1,
 	commentBefore: '//',
-	commentAfter: ''
+	commentAfter: '',
+	newlineAtEnd: true
 };
 
 export class SplitView {
@@ -26,7 +27,10 @@ export class SplitView {
 			var alignment = new Array(this.max-current[0].length+1).join(' ');
 			var code = current[0] + alignment;
 			var comment = sB + this.options.commentBefore + sA + current[1];
-			return last + code + comment + '\n';
+
+			// handle end-of-line options
+			var newlineAtEnd = this.lines.length-1 !== index || this.options.newlineAtEnd;
+			return last + code + comment + (newlineAtEnd ? '\n' : '');
 		});
 	}
 }
