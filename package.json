@@ -1,0 +1,31 @@
+{
+  "name": "codements",
+  "version": "0.0.1",
+  "description": "Code & comment alignment library.",
+  "main": "build/index.js",
+  "scripts": {
+    "compile": "babel --presets es2015 source -d build",
+    "example": "babel-node --es2015 example.js",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dodekeract/codements.git"
+  },
+  "keywords": [
+    "code",
+    "comment",
+    "alignment",
+    "spaces"
+  ],
+  "author": "Florian Wendelborn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dodekeract/codements/issues"
+  },
+  "homepage": "https://github.com/dodekeract/codements#readme",
+  "dependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.0"
+  }
+}
