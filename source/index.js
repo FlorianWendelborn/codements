@@ -3,7 +3,8 @@ var defaultOptions = {
 	spacesAfter: 1,
 	commentBefore: '//',
 	commentAfter: '',
-	newlineAtEnd: true
+	newlineAtEnd: true,
+	expandNewlines: true
 };
 
 export class SplitView {
@@ -12,8 +13,15 @@ export class SplitView {
 		this.reset();
 	}
 	addLine (code, comment) {
-		this.lines.push([code, comment]);
-		this.max = Math.max(this.max, code.length);
+		var codes = this.options.expandNewlines ? code.split('\n') : [code];
+		var comments = this.options.expandNewlines ? comment.split('\n') : [comment];
+		var length = Math.max(codes.length, comments.length);
+		for (var i = 0; i < length; i++) {
+			var code = codes[i] || '';
+			var comment = comments[i] || '';
+			this.lines.push([code, comment]);
+			this.max = Math.max(this.max, code.length);
+		}
 	}
 	reset () {
 		// empty string prevents later array.reduce call from messing up the first line
