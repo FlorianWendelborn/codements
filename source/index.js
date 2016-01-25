@@ -13,6 +13,8 @@ export class SplitView {
 		this.reset();
 	}
 	addLine (code, comment) {
+		var code = code || '';
+		var comment = comment || '';
 		var codes = this.options.expandNewlines ? code.split('\n') : [code];
 		var comments = this.options.expandNewlines ? comment.split('\n') : [comment];
 		var length = Math.max(codes.length, comments.length);
@@ -33,8 +35,8 @@ export class SplitView {
 		var sB = new Array(this.options.spacesBefore+1).join(' ');
 		return this.lines.reduce((last, current, index) => {
 			var alignment = new Array(this.max-current[0].length+1).join(' ');
-			var code = current[0] + alignment;
-			var comment = sB + this.options.commentBefore + sA + current[1];
+			var code = current[0];
+			var comment = current[1] === '' ? '' : alignment + sB + this.options.commentBefore + sA + current[1];
 
 			// handle end-of-line options
 			var newlineAtEnd = this.lines.length-1 !== index || this.options.newlineAtEnd;
