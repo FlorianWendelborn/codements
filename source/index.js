@@ -9,7 +9,7 @@ var defaultOptions = {
 
 export class SplitView {
 	constructor (options) {
-		this.options = Object.assign({},defaultOptions,options);
+		this.options = Object.assign({}, defaultOptions, options);
 		this.reset();
 	}
 	addLine (code, comment) {
